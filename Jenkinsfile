@@ -1,8 +1,9 @@
 node{
 	stage('scm'){
-		git 'https://github.com/dkc1019/openmrs-core.git'	
+		git branch: 'feature1', url: 'https://github.com/dkc1019/openmrs-core.git'
 	}
-	stage('creating artifacts'){
-		sh 'mvn package'
+	
+	Stage(‘junit test result’){         
+	junit '/surefire-target/*.xml'
 	}
 }
